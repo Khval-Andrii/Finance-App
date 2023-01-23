@@ -1,2 +1,20 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<h1>Генератор звітів</h1>
+<div>
+  <form action="action_report" method="GET">
+    <label for="first_date">Дата YYY-MM-DD</label>
+    <input type="date" id="first_date" name="odate" value="2023-01-05">
+    <br>
+    <label for="second_date">Дата YYY-MM-DD</label>
+    <input type="date" id="second_date" name="odate" value="2023-01-15">
+    <br>
+    <label for="type_operation">Тип операції</label>
+    <select id="type_operation" name="Витрата">
+    <br>
+    <label for="category">Категорія</label>
+    <select id="categoty" name="category_id">
+    <br>
+    <button type="submit" class="btn btn-success" id="btn_graph" name="btn_graph" value="graph">Графік</button>
+    <button type="submit" class="btn btn-danger" id="btn_dates" name="btn_dates" value="dates">По датам</button>
+    <button type="reset" class="btn-primary" id="btn_reset" name="btn_reset" value="reset">Очистити</button>
+  </form>
+</div>
