@@ -25,12 +25,14 @@
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
   </div>
+  
+  <br>
 
   <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <% categories_array = Category.all.map { |cat| [cat.name, cat.id]}%>
-    <%= form.select :category_id, categories_array, :promt => "Choose category" %>
+    <%= form.select(:category_id, @categories_array) %>
   </div>
+
+  <br>
 
   <div>
     <%= form.submit %>
