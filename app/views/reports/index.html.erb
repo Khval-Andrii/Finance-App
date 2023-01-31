@@ -1,16 +1,17 @@
 <h1>Генератор звітів</h1>
+
 <div>
   <form action="action_report" method="GET">
     <label for="first_date">Дата YYY-MM-DD</label>
-    <input type="text" id="first_date" name="start_date" placeholder="2023-01-05">
+    <input type="date" id="first_date" name="start_date" required>
     <br>
     <label for="second_date">Дата YYY-MM-DD</label>
-    <input type="text" id="second_date" name="end_date" placeholder="2023-01-15">
+    <input type="date" id="second_date" name="end_date" required>
     <br>
 
-    <label for="type_operation">Тип операцій</label>
-    <input id="type_operation" name="operations" list="type_operation">
-    <datalist id="type_operation">
+    <label for="operations">Тип операцій</label>
+    <input id="operations" name="operations" list="type_operations">
+    <datalist id="type_operations">
         <option value="Витрати">
         <option value="Доходи">
     </datalist>
@@ -19,8 +20,10 @@
     <select id="category" name="categories">
     </select>
     <br>
-    <button type="submit" id="btn_graph" name="btn_graph" value="graph">Графік</button>
-    <button type="submit" id="btn_dates" name="btn_dates" value="dates">По датам</button>
-    <button type="reset" id="btn_reset" name="btn_reset" value="reset">Очистити</button>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="reset" class="btn btn-outline-primary" id="btn_reset" name="btn_reset" value="reset">Очистити</button>
+      <button type="button" class="btn btn-outline-primary" id="btn_graph" name="btn_graph" value="graph">Графік</button>
+      <button type="button" class="btn btn-outline-primary" id="btn_dates" name="btn_dates" value="dates">По датам</button>
+    </div>
   </form>
 </div>
