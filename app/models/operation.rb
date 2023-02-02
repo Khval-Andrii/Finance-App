@@ -4,5 +4,5 @@ class Operation < ApplicationRecord
   validates :amount, numericality: true
   validates :odate, presence: true
   validates :description, presence: true
-  paginates_per 2
+  paginates_per 3
 end 
