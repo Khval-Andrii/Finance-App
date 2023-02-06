@@ -1,29 +1,29 @@
 <h1>Генератор звітів</h1>
 
 <div>
-  <form action="action_report" method="GET">
-    <label for="first_date">Дата YYY-MM-DD</label>
-    <input type="date" id="first_date" name="start_date" required>
-    <br>
-    <label for="second_date">Дата YYY-MM-DD</label>
-    <input type="date" id="second_date" name="end_date" required>
+  <%= form_with url: "action_report", method: :get do |form| %>
+    <%= form.label :start_date, "Дата YYYY-MM-DD" %>
+    <%= form.date_field :start_date %>
     <br>
 
-    <label for="operations">Тип операцій</label>
-    <input id="operations" name="operations" list="type_operations">
-    <datalist id="type_operations">
-        <option value="Витрати">
-        <option value="Доходи">
-    </datalist>
+    <%= form.label :end_date, "Дата YYYY-MM-DD" %>
+    <%= form.date_field :end_date %>
     <br>
-    <label for="category">Категорія</label>
-    <select id="category" name="categories">
-    </select>
+
+    <%= form.label :type_operations_1, "Доходи" %>
+    <%= form.radio_button :type_operations, "1" %>
+    <%= form.label :type_operations_2, "Витрати" %>
+    <%= form.radio_button :type_operations, "2" %>
     <br>
+   
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+    <br>
+    <hr>
+
     <div class="btn-group" role="group" aria-label="Basic outlined example">
       <input type="reset" class="btn btn-outline-primary" id="btn_reset" name="btn_reset" value="Очистити"></input>
       <input type="submit" class="btn btn-outline-primary" id="btn_graph" name="btn_graph" value="Графік"></input>
       <input type="submit" class="btn btn-outline-primary" id="btn_dates" name="btn_dates" value="По датам"></input>
     </div>
-  </form>
+  <% end %>
 </div>

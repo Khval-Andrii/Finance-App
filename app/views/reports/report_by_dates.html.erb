@@ -1,5 +1,5 @@
 <%= render 'chart' %>
-<h1>Звіт за період: <%= @start_date %> - <%= @end_date %> </h1>
+<h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
 <canvas id="myChart" width="600" height="400"></canvas>
 <script>
 const ctx = document.getElementById('myChart');
