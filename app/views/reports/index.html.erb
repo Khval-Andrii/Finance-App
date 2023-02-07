@@ -15,7 +15,7 @@
     <%= form.label :type_operations_2, "Витрати" %>
     <%= form.radio_button :type_operations, "2" %>
     <br>
-   
+    <%= form.label :category_id, "Категорія" %>
     <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
     <br>
     <hr>

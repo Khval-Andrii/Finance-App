@@ -3,20 +3,20 @@ class ReportsController < ApplicationController
   end
 
   def report_by_category
-    operations_by_categories = Operation.all.map { |oper| 
-      [oper.amount.to_f, oper.category_id] if oper.odate >= params[:start_date] && oper.odate <= params[:end_date]
-      }
-    
-    categories_array = Category.all.map { |c| [c.id, c.name]}
-    
-    @amount = categories_array.map { |c| c[0] }
-    
-    @category_by_id = categories_array.map { |c| c[1] }
+    oper_arr = Operation
+      .order(:odate)
+      .where('odate BETWEEN ? AND ?', params[:start_date], params[:end_date])
+      .group(:category_id)
+      .sum(:amount)
+    @amount = oper_arr.map { |a| a[1] }
+   # puts(@amount)
+    @category_id = Category.find(oper_arr.map { |a| a[0] }).map { |c| [c.name] }
+    #puts(@category_id)
   end
 
   def report_by_dates
     operations_array = Operation.all.map { |oper| 
-      [oper.amount.to_f, oper.odate.to_s] if oper.odate >= params[:start_date] && oper.odate <= params[:end_date]
+      [oper.amount.to_f, oper.odate.to_date.to_s] if oper.odate >= params[:start_date] && oper.odate <= params[:end_date]
       }
     
     @amount = operations_array.map { |amount| amount[0] } 
