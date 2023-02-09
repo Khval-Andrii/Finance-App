@@ -40,7 +40,7 @@ gem "jbuilder"
 gem "tzinfo-data"
 
 #Generation of data (faker)
-gem "faker"
+gem 'faker', '~> 3.1', '>= 3.1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

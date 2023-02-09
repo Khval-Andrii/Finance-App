@@ -34,6 +34,13 @@
 
   <br>
 
+   <div>
+    <% types_of_operation = [["Витрати", 1], ["Доходи", 2]] %>
+    <%= form.select(:types, types_of_operation) %>
+  </div>
+
+    <br>
+
   <div>
     <%= form.submit %>
   </div>
