@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_22_180034) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_093206) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_22_180034) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "types", default: "Витрати", null: false
     t.index ["category_id"], name: "index_operations_on_category_id"
   end
 
