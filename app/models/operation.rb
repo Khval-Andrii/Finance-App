@@ -8,20 +8,17 @@ class Operation < ApplicationRecord
   paginates_per 3
 
   def self.model_report_by_category(start_date, end_date)
-    operations = Operation
+    Operation
+      .joins(:category)
       .where('odate BETWEEN ? AND ?', start_date, end_date)
-      .group(:category_id)
+      .group('categories.name')
       .sum(:amount)
-    
-    return operations
   end
 
   def self.model_report_by_dates(start_date, end_date)
-    operations = Operation
+    Operation
       .where('odate BETWEEN ? AND ?', start_date, end_date)
       .group(:odate)
       .sum(:amount)
-  
-    return operations
   end
 end 

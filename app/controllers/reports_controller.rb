@@ -7,13 +7,9 @@ class ReportsController < ApplicationController
     .model_report_by_category(params[:start_date], params[:end_date])
     .values
 
-    category_ids = Operation
+    @category_names = Operation
     .model_report_by_category(params[:start_date], params[:end_date])
     .keys
-
-    @category_names = Category
-    .where(id: category_ids)
-    .pluck(:name)
   end
 
   def report_by_dates
@@ -26,8 +22,6 @@ class ReportsController < ApplicationController
     .model_report_by_dates(params[:start_date], params[:end_date])
     .keys
     .map { |date| date.to_date.to_s }
-    
-    #Operation.model_report_by_dates(params[:start_date], params[:end_date])    
   end
   
   def action_report
