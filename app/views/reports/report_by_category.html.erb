@@ -11,10 +11,10 @@
     <script>
     const ctx = document.getElementById('myChart');
     const data = {
-    labels: <%= raw @category_id %>,
+    labels: <%= raw @category_names %>,
     datasets: [{
         label: "Загальна сума по категорії",
-        data: <%= @amount %>,
+        data: <%= @amounts %>,
         backgroundColor: [
         'rgb(255, 99, 132)',
         'rgb(54, 162, 235)',

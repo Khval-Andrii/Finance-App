@@ -3,23 +3,24 @@ class ReportsController < ApplicationController
   end
 
   def report_by_category
-    oper_arr = Operation
+    operations = Operation
       .where('odate BETWEEN ? AND ?', params[:start_date], params[:end_date])
       .group(:category_id)
       .sum(:amount)
-    @amount = oper_arr.map { |a| a[1] }
-    @category_id = Category.find(oper_arr.map { |a| a[0] }).map { |c| [c.name] }
+  
+    @amounts = operations.values
+    category_ids = operations.keys
+    @category_names = Category.where(id: category_ids).pluck(:name)
   end
 
   def report_by_dates
-    oper_arr = Operation
+    operations = Operation
       .where('odate BETWEEN ? AND ?', params[:start_date], params[:end_date])
-      .order(:odate)
       .group(:odate)
       .sum(:amount)
-    
-    @amount = oper_arr.map { |amount| amount[1].to_f }
-    @dates = oper_arr.map { |date| date[0].to_date.to_s }
+  
+    @amounts = operations.values.map { |amount| amount.to_f }
+    @dates = operations.keys.map { |date| date.to_date.to_s }
   end
   
   def action_report
