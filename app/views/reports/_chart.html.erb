@@ -1,1 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type='text/javascript'>
+  (function(){
+    if(!sessionStorage.getItem('firstLoad')){
+      sessionStorage['firstLoad'] = true;
+      window.location.reload();
+    }else{
+      sessionStorage.removeItem('firstLoad');
+  }})();
+</script>
