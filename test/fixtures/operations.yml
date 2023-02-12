@@ -5,9 +5,11 @@ one:
   odate: 2023-01-12 11:50:29
   description: MyString
   category: one
+  types: one
 
 two:
   amount: 9.99
   odate: 2023-01-12 11:50:29
   description: MyString
   category: two
+  types: two
