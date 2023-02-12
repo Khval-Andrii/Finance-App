@@ -3,5 +3,5 @@ class Category < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
-    paginates_per 3
+    paginates_per 4
 end
