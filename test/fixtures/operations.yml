@@ -1,15 +1,29 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  amount: 9.0
-  odate: 2023-01-12 11:50:29
+  amount: 9.5
+  odate: 2023-01-12
   description: MyString
   category: one
   types: 1
 
 two:
   amount: 10.0
-  odate: 2023-01-12 11:50:29
+  odate: 2023-01-12
+  description: MyString
+  category: two
+  types: 2
+
+three:
+  amount: 10.5
+  odate: 2023-01-13
+  description: MyString
+  category: one
+  types: 1
+
+four:
+  amount: 15.0
+  odate: 2023-01-13
   description: MyString
   category: two
   types: 2
