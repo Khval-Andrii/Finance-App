@@ -7,7 +7,7 @@ class Operation < ApplicationRecord
   validates :types, numericality: { only_integer: true, in: 1..2 }
   paginates_per 4
 
-  def self.model_report_by_category(start_date, end_date)
+  def self.model_report_by_category(start_date, end_date, type_operations)
     Operation
       .joins(:category)
       .where('odate BETWEEN ? AND ?', start_date, end_date)
@@ -15,7 +15,7 @@ class Operation < ApplicationRecord
       .sum(:amount)
   end
 
-  def self.model_report_by_dates(start_date, end_date)
+  def self.model_report_by_dates(start_date, end_date, category_id)
     Operation
       .where('odate BETWEEN ? AND ?', start_date, end_date)
       .group(:odate)
