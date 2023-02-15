@@ -1,12 +1,14 @@
-<%= render 'chart' %>
-<h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
-<br>
-<h3>Операції в розрізі категорій</h3>
-
-<div class="table_by_categories">
+<div>
+  <%= render template: 'reports/index' %>
 </div>
+<br>
 
-<div class="Chart_by_categories">
+<div>
+  <%= render 'chart' %>
+  <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
+  <br>
+  <h3>Операції в розрізі категорій</h3>
+  <div class="Chart_by_categories">
     <canvas id="myChart" width="600" height="400"></canvas>
     <script>
     const ctx = document.getElementById('myChart');
@@ -35,10 +37,14 @@
     type: 'doughnut',
     data: data,
     options: {
-        responsive: false
+       responsive: false
     }
     };
 
     const myChart = new Chart(ctx, config);
     </script>
+  </div>
+</div>
+
+<div class="table_by_categories">
 </div>
