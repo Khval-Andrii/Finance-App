@@ -13,17 +13,16 @@
     <%= form.label :type_operations_1, "Доходи" %>
     <%= form.radio_button :type_operations, "1" %>
     <%= form.label :type_operations_2, "Витрати" %>
-    <%= form.radio_button :type_operations, "2" %>
+    <%= form.radio_button :type_operations, "2", :checked => true %>
     <br>
     <%= form.label :category_id, "Категорія" %>
     <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
     <br>
-    <hr>
 
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <input type="reset" class="btn btn-outline-primary" id="btn_reset" name="btn_reset" value="Очистити"></input>
-      <input type="submit" class="btn btn-outline-primary" id="btn_graph" name="btn_graph" value="Графік"></input>
-      <input type="submit" class="btn btn-outline-primary" id="btn_dates" name="btn_dates" value="По датам"></input>
+      <input type="reset" class="btn btn-outline-success" id="btn_reset" name="btn_reset" value="Очистити"></input>
+      <input type="submit" class="btn btn-outline-success" id="btn_graph" name="btn_graph" value="Графік"></input>
+      <input type="submit" class="btn btn-outline-success" id="btn_dates" name="btn_dates" value="По датам"></input>
     </div>
   <% end %>
 </div>
