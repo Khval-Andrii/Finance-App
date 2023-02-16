@@ -1,6 +1,7 @@
 <div>
   <%= render template: 'reports/index' %>
 </div>
+
 <div>
   <%= render 'chart' %>
   <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
@@ -27,4 +28,23 @@
   };
   const myChart = new Chart(ctx, config);
   </script>
+</div>
+
+<div class="table_by_datesS">
+  <table>
+    <thead>
+      <tr>
+        <th>Дата</th>
+        <th>Сума</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dates_and_amounts.each do |dates_item, amount_item| %>
+      <tr>
+        <td><%= dates_item.to_date %></td>
+        <td><%= amount_item.round(2) %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
 </div>

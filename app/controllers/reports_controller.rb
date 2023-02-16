@@ -3,25 +3,21 @@ class ReportsController < ApplicationController
   end
 
   def report_by_category
-    @amounts = Operation
+    @categories_and_amount = Operation
     .model_report_by_category(params[:start_date], params[:end_date], params[:type_operations])
-    .values
 
-    @category_names = Operation
-    .model_report_by_category(params[:start_date], params[:end_date], params[:type_operations])
-    .keys
+    @amounts = @categories_and_amount.values
+
+    @category_names = @categories_and_amount.keys
   end
 
   def report_by_dates
-    @amounts = Operation
+    @dates_and_amounts = Operation
     .model_report_by_dates(params[:start_date], params[:end_date], params[:category_id])
-    .values
-    .map { |amount| amount.to_f }
-
-    @dates = Operation
-    .model_report_by_dates(params[:start_date], params[:end_date], params[:category_id])
-    .keys
-    .map { |date| date.to_date.to_s }
+    
+    @dates = @dates_and_amounts.keys.map { |date| date.to_date.to_s }
+        
+    @amounts = @dates_and_amounts.values.map { |amount| amount.to_f }
   end
   
   def action_report

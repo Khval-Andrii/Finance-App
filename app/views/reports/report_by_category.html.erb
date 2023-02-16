@@ -1,6 +1,7 @@
 <div>
   <%= render template: 'reports/index' %>
 </div>
+
 <br>
 
 <div>
@@ -47,4 +48,20 @@
 </div>
 
 <div class="table_by_categories">
+  <table>
+    <thead>
+      <tr>
+        <th>Категорія</th>
+        <th>Сума</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories_and_amount.each do |category_item, amount_item| %>
+      <tr>
+        <td><%= category_item %></td>
+        <td><%= amount_item.round(2) %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
 </div>
