@@ -10,14 +10,14 @@ class Operation < ApplicationRecord
   def self.model_report_by_category(start_date, end_date, type_operations)
     Operation
       .joins(:category)
-      .where('odate BETWEEN ? AND ?', start_date, end_date)
+      .where('odate BETWEEN ? AND ? AND types = ?', start_date, end_date, type_operations)
       .group('categories.name')
       .sum(:amount)
   end
 
   def self.model_report_by_dates(start_date, end_date, category_id)
     Operation
-      .where('odate BETWEEN ? AND ?', start_date, end_date)
+      .where('odate BETWEEN ? AND ? AND category_id = ?', start_date, end_date, category_id)
       .group(:odate)
       .sum(:amount)
   end
