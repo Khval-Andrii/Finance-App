@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_093206) do
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "types"
+    t.integer "types", null: false
     t.index ["category_id"], name: "index_operations_on_category_id"
   end
 
