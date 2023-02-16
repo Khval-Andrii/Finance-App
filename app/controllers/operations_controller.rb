@@ -13,12 +13,12 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @operation = Operation.new
-    @categories_array = Category.all.map { |cat| [cat.name, cat.id]}
+    @categories_array = Category.pluck(:name, :id)
   end
 
   # GET /operations/1/edit
   def edit
-    @categories_array = Category.all.map { |cat| [cat.name, cat.id]}
+    @categories_array = Category.pluck(:name, :id)
   end
 
   # POST /operations or /operations.json
@@ -67,6 +67,6 @@ class OperationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id)
+      params.require(:operation).permit(:amount, :odate, :description, :category_id, :types)
     end
 end
