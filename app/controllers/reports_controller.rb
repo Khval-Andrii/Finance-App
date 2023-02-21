@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
     
     @dates = @dates_and_amounts.keys.map { |date| date.to_date.to_s }
         
-    @amounts = @dates_and_amounts.values.map { |amount| amount.to_f }
+    @amounts = @dates_and_amounts.values.map { |amount| amount }
   end
   
   def action_report

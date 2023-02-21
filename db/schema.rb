@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_093206) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.decimal "amount"
+    t.decimal "amount", :precision => 8, :scale => 2
     t.datetime "odate"
     t.string "description"
     t.integer "category_id", null: false
