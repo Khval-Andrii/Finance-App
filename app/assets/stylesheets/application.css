@@ -37,6 +37,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: white;
+}
+
 p {
     font-size: 18px;
 }
@@ -71,4 +75,8 @@ ul.pagination {
     --bs-pagination-disabled-color: var(--bs-secondary-color);
     --bs-pagination-disabled-bg: var(--bs-secondary-bg);
     --bs-pagination-disabled-border-color: var(--bs-border-color);
+}
+
+input {
+    min-width: 30%;
 }
