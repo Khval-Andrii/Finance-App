@@ -1,17 +1,17 @@
 <p style="color: green"><%= notice %></p>
-<div class="container-sm me-auto h-50 ">
-  <h1 class="text-center">Category</h1>
+<div class="container h-50 me-auto d-flex flex-column justify-content-start">
+  <h1 class="text-start h-25 pt-3">About Category</h1>
   <div class="d-flex justify-content-center">
     <%= render @category %>
   </div>
-  <div class="text-center">
-    <button class="btn btn-info btn-sm mb-2 ms-2"> 
+  <div class="text-start">
+    <button class="btn btn-info mb-2 me-2"> 
       <%= link_to "Back to categories", categories_path %>
     </button>
-    <button class="btn btn-success btn btn-sm mb-2 ms-2">
+    <button class="btn btn-success btn mb-2 me-2">
       <%= link_to "Edit this category", edit_category_path(@category) %>
     </button>
-    <button class="btn btn-danger btn btn-sm mb-2 ms-2">
+    <button class="btn btn-danger btn mb-2 me-2">
       <%= link_to "Destroy this category", @category, method: :delete %>
     </button>
   </div>
