@@ -1,10 +1,15 @@
-<h1>Editing category</h1>
-
-<%= render "form", category: @category %>
-
-<br>
-
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
+<div class="container-sm me-auto h-50 d-flex flex-column justify-content-center">
+  <h1 class="text-center">Editing category:</h1>
+  <div class="d-flex justify-content-center m-3">
+  <%= render "form", category: @category %>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-info btn-sm mb-2 ms-2">
+      <%= link_to "Back to categories", categories_path %>
+    </button>
+    <button class="btn btn-success btn-sm mb-2 ms-2">
+      <%= link_to "Show this category", @category %>
+    </button>
+    
+  </div>
 </div>
