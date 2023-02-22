@@ -1,15 +1,19 @@
 <p style="color: green"><%= notice %></p>
-<div class="container-md d-flex flex-column p-3">
+<div class="container d-flex flex-column p-3">
   <h1 class="text-center">Categories</h1>
   <div class="new_category_link mb-2 pb-3 text-center">
-    <button class="btn btn-success"><%= link_to "Add new category", new_category_path %></button>
+    <button class="btn btn-success">
+      <%= link_to "Add new category", new_category_path %>
+    </button>
   </div>
 
-  <div class="category-container" id="categories">
+  <div class="mb-3" id="categories">
     <% @categories.each do |category| %>
       <%= render category %>
       <p>
-        <button class="btn btn-success"><%= link_to "Show this category", category %></button>
+        <button class="btn btn-success">
+          <%= link_to "Show this category", category %>
+        </button>
       </p>
       <div class="border-bottom"></div>
     <% end %>
