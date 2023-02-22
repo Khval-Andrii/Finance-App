@@ -1,17 +1,21 @@
 <p style="color: green"><%= notice %></p>
+<div class="container-md d-flex flex-column p-3">
+  <h1 class="text-center">Categories</h1>
+  <div class="new_category_link mb-2 pb-3 text-center">
+    <button class="btn btn-success"><%= link_to "Add new category", new_category_path %></button>
+  </div>
 
-<h1>Categories</h1>
+  <div class="category-container" id="categories">
+    <% @categories.each do |category| %>
+      <%= render category %>
+      <p>
+        <button class="btn btn-success"><%= link_to "Show this category", category %></button>
+      </p>
+      <div class="border-bottom"></div>
+    <% end %>
+  </div>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
+  <div class="paginate">
+    <%= paginate @categories%>
+  </div>
 </div>
-
-<%= link_to "New category", new_category_path %>
-<br>
-<br>
-<%= paginate @categories%>
