@@ -77,6 +77,10 @@ ul.pagination {
     --bs-pagination-disabled-border-color: var(--bs-border-color);
 }
 
+form {
+    width: 50%;
+}
+
 input {
-    min-width: 30%;
+    width: 100%;
 }
