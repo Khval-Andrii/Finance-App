@@ -1,9 +1,11 @@
-<h1>New operation</h1>
-
-<%= render "form", operation: @operation %>
-
-<br>
-
-<div>
-  <%= link_to "Back to operations", operations_path %>
+<div class="container h-75 me-auto d-flex flex-column justify-content-center">
+  <h1 class="text-center mb-3">New operation</h1>
+  <div class="d-flex justify-content-center mb-3">
+    <%= render "form", operation: @operation %>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-info mt-3 me-2">
+      <%= link_to "Back to operations", operations_path %>
+    </button>
+  </div>
 </div>
