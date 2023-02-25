@@ -1,28 +1,36 @@
-<h1>Генератор звітів</h1>
+<div class="container h-50 me-auto">
+  <h1 class="text-center pt-3">Генератор звітів</h1>
 
-<div>
-  <%= form_with url: "action_report", method: :get do |form| %>
-    <%= form.label :start_date, "Дата YYYY-MM-DD" %>
-    <%= form.date_field :start_date %>
-    <br>
-
-    <%= form.label :end_date, "Дата YYYY-MM-DD" %>
-    <%= form.date_field :end_date %>
-    <br>
-
-    <%= form.label :type_operations_1, "Доходи" %>
-    <%= form.radio_button :type_operations, "1" %>
-    <%= form.label :type_operations_2, "Витрати" %>
-    <%= form.radio_button :type_operations, "2", :checked => true %>
-    <br>
-    <%= form.label :category_id, "Категорія" %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
-    <br>
-
-    <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <input type="reset" class="btn btn-outline-success" id="btn_reset" name="btn_reset" value="Очистити"></input>
-      <input type="submit" class="btn btn-outline-success" id="btn_graph" name="btn_graph" value="Графік"></input>
-      <input type="submit" class="btn btn-outline-success" id="btn_dates" name="btn_dates" value="По датам"></input>
-    </div>
-  <% end %>
+  <div class="d-flex justify-content-center w-100">
+    <%= form_with url: "action_report", method: :get do |form| %>
+      <div class="mt-3">
+        <strong><%= form.label :start_date, "Дата YYYY-MM-DD" %></strong>
+        <%= form.date_field :start_date %>
+      </div>
+      <div class="mt-3">
+        <strong><%= form.label :end_date, "Дата YYYY-MM-DD" %></strong>
+        <%= form.date_field :end_date %>
+      </div>
+      <!--<div class="d-flex justify-content-around mt-3">
+        <%= form.label :type_operations_1, "Доходи" %>
+        <%= form.radio_button :type_operations, "1" %>
+        <%= form.label :type_operations_2, "Витрати" %>
+        <%= form.radio_button :type_operations, "2", :checked => true %>
+      </div>-->
+      <div class="mt-3">
+        <strong><%= form.label :"Тип операції" %></strong>
+        <% types_of_operation = [["Витрати", 1], ["Доходи", 2]] %>
+        <%= form.select(:type_operations, types_of_operation) %>
+      </div>
+      <div class="mt-3">
+        <strong><%= form.label :category_id, "Категорія" %></strong>
+        <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+      </div>
+      <div class="text-center mt-3">
+        <button type="reset" class="btn btn-danger mb-2 me-2" id="btn_reset" name="btn_reset">Очистити</button>
+        <button type="submit" class="btn btn-success mb-2 me-2" id="btn_dates" name="btn_dates">По датам</button>
+        <button type="submit" class="btn btn-primary mb-2 me-2" id="btn_graph" name="btn_graph">Графік</button>
+      </div>
+    <% end %>
+  </div>
 </div>
