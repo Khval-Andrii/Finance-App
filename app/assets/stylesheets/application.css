@@ -84,3 +84,7 @@ form {
 input {
     width: 100%;
 }
+
+td {
+    font-size: 0.8em;
+}
