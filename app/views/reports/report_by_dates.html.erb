@@ -1,50 +1,63 @@
-<div>
+<div class="mb-3">
   <%= render template: 'reports/index' %>
 </div>
 
-<div>
-  <%= render 'chart' %>
-  <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
-  <canvas id="myChart" width="600" height="400"></canvas>
-  <script>
-  const ctx = document.getElementById('myChart');
-  const data = {
-  labels: <%= raw @dates %>,
-  datasets: [{
-    label: 'Витрати по дням',
-    data: <%= @amounts %>,
-    fill: false,
-    borderColor: 'rgb(75, 192, 192)',
-    tension: 0.1
-    }]
-  };
+<div class="border-bottom"></div>
 
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-      responsive: false
-    }
-  };
-  const myChart = new Chart(ctx, config);
-  </script>
-</div>
+<div class="container-fluid">
+  <div class="text-center mt-3">
+    <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
+  </div>
+  <div class="bg-body-secondary d-flex justify-content-evenly">
+    <div class="p-4">
+      <%= render 'chart' %>
+      
+      <h4 class="text-center">Витрати по категорії в розрізі дат</h4>
+      <div class="Chart_by_categories w-100">
+        <canvas id="myChart" width="600" height="400"></canvas>
+        <script>
+        const ctx = document.getElementById('myChart');
+        const data = {
+        labels: <%= raw @dates %>,
+        datasets: [{
+          label: 'Витрати по дням',
+          data: <%= @amounts %>,
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+          }]
+        };
 
-<div class="table_by_datesS">
-  <table>
-    <thead>
-      <tr>
-        <th>Дата</th>
-        <th>Сума</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @dates_and_amounts.each do |dates_item, amount_item| %>
-      <tr>
-        <td><%= dates_item.to_date %></td>
-        <td><%= amount_item.round(2) %></td>
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
+        const config = {
+          type: 'line',
+          data: data,
+          options: {
+            responsive: false
+          }
+        };
+        const myChart = new Chart(ctx, config);
+        </script>
+      </div>
+    </div>
+
+    <div class="p-4 table-responsive">
+      <h4 class="text-center">Таблиця витрат в розрізі дат</h4>
+      <table class="table table-success table-hover table-bordered border-1">
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Сума</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% @dates_and_amounts.each do |dates_item, amount_item| %>
+          <tr>
+            <td><%= dates_item.to_date %></td>
+            <td><%= amount_item.round(2) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
