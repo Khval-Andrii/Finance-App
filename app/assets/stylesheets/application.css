@@ -19,6 +19,11 @@ body {
     background-color: whitesmoke;
     height: 100vh;
 }
+/* 
+main {
+    height: 90%;
+} */
+
 ul {
     width: 30%; 
 }
@@ -47,7 +52,7 @@ p {
 
 .pagination {
     width: 100%;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 ul.pagination {
     display: flex;
@@ -86,5 +91,13 @@ input {
 }
 
 td {
-    font-size: 0.8em;
+    font-size: 1em;
+}
+
+.footer-link-item {
+    color: #5283e9;
+}
+
+.footer-link-item:hover {
+    color: black;
 }
