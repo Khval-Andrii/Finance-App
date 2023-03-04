@@ -6,7 +6,7 @@ class CategoryTest < ActiveSupport::TestCase
     assert(new_category.valid?)
   end
 
-  test "return false if anything is failed" do
+  test "return false if name is failed " do
     new_category = Category.new(description: "new_description")
     assert_not(new_category.valid?)
   end
