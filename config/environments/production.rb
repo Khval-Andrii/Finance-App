@@ -87,7 +87,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.secret_key_base = "8335f59231e03b251b8c240e9266b5932359f2f13a833ace2c5cfaf779d525341af1346ad66e0d954c54c310a827a187e20bc99a03b6359b59194bbcd6df5c0d"
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

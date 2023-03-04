@@ -37,6 +37,14 @@ ul {
     color: white;
 }
 
+.footer-link-item {
+    color: #5283e9;
+}
+
+.footer-link-item:hover {
+    color: black;
+}
+
 a {
     color: aliceblue;
     text-decoration: none;
