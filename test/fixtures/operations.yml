@@ -4,26 +4,33 @@ one:
   amount: 9.5
   odate: 2023-01-12
   description: MyString
-  category: one
+  category_id: 1
   types: 1
 
 two:
   amount: 10.0
   odate: 2023-01-12
   description: MyString
-  category: two
+  category_id: 2
   types: 2
 
 three:
-  amount: 10.5
-  odate: 2023-01-13
+  amount: 10.0
+  odate: 2023-01-12
   description: MyString
-  category: one
+  category_id: 3
   types: 1
 
 four:
+  amount: 10.5
+  odate: 2023-01-13
+  description: MyString
+  category_id: 1
+  types: 1
+
+five:
   amount: 15.0
   odate: 2023-01-13
   description: MyString
-  category: two
+  category_id: 2
   types: 2
