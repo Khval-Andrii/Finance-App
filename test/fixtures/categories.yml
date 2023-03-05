@@ -1,9 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   name: MyName_1
   description: MyDescription_1
 
 two:
+  id: 2
   name: MyName_2
   description: MyDescription_2
+
+three:
+  id: 3
+  name: MyName_3
+  description: MyDescription_3
+
+four:
+  id: 4
+  name: MyName_4
+  description: MyDescription_4
