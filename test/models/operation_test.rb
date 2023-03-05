@@ -69,28 +69,32 @@ class OperationTest < ActiveSupport::TestCase
   test "return sum of amount by category for given range of dates" do
     start_date = "2023-01-12"
     end_date = "2023-01-13"
+    type_operations = 1
 
-    first_result = Operation.model_report_by_category(start_date, end_date)
+
+    first_result = Operation.model_report_by_category(start_date, end_date, type_operations)
     result = Hash[first_result.map { |k, v| [k, v.to_f] }]
 
-    assert_equal({ "MyName_1" => 20.0, "MyName_2" => 25.0 }, result )
+    assert_equal({ "MyName_1" => 20.0, "MyName_3" => 10.0 }, result )
   end
   
   test "return sum of amount by dates for given range of dates" do
     start_date = "2023-01-12"
     end_date = "2023-01-13"
+    category_id = 2
 
-    first_result = Operation.model_report_by_dates(start_date, end_date)
+    first_result = Operation.model_report_by_dates(start_date, end_date, category_id)
     result = Hash[first_result.map { |k, v| [k.to_date.to_s, v.to_f] }]
 
-    assert_equal({ "2023-01-12" => 19.5, "2023-01-13" => 25.5 }, result )
+    assert_equal({ "2023-01-12" => 10.0, "2023-01-13" => 15.0 }, result )
   end
 
   test "return false if given range of dates is not valid for sum amount by category" do
     start_date = "2023-01-14"
     end_date = "2023-01-15"
+    type_operations = 1
 
-    first_result = Operation.model_report_by_category(start_date, end_date)
+    first_result = Operation.model_report_by_category(start_date, end_date, type_operations)
     result = Hash[first_result.map { |k, v| [k, v.to_f] }]
 
     assert_not_equal({ "MyName_1" => 0.0, "MyName_2" => 0.0 }, result )
@@ -99,8 +103,9 @@ class OperationTest < ActiveSupport::TestCase
   test "return false if given range of dates is not valid for sum amount by dates" do
     start_date = "2023-01-14"
     end_date = "2023-01-15"
+    category_id = 2
 
-    first_result = Operation.model_report_by_dates(start_date, end_date)
+    first_result = Operation.model_report_by_dates(start_date, end_date, category_id)
     result = Hash[first_result.map { |k, v| [k.to_date.to_s, v.to_f] }]
 
     assert_not_equal({ "2023-01-14" => 0.0, "2023-01-15" => 0.0 }, result )
