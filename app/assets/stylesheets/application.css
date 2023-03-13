@@ -16,8 +16,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    background-color: whitesmoke;
+    
     height: 100vh;
+    background-image: url("./money1.jpg");
+    background-size: 100% auto;
 }
 /* 
 main {
@@ -108,4 +110,8 @@ td {
 
 .footer-link-item:hover {
     color: black;
+}
+
+.bg-body-secondary {
+    --bs-bg-opacity: 0.6;
 }
