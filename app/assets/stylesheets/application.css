@@ -19,7 +19,7 @@ body {
     
     height: 100vh;
     background-image: url("./money1.jpg");
-    background-size: 100% auto;
+    background-size: cover;
 }
 /* 
 main {
