@@ -20,6 +20,7 @@ body {
     height: 100vh;
     background-image: url("./money1.jpg");
     background-size: cover;
+    background-position: 20%;
 }
 /* 
 main {
@@ -114,4 +115,18 @@ td {
 
 .bg-body-secondary {
     --bs-bg-opacity: 0.6;
+}
+
+button.btn {
+    min-width: 150px;
+}
+
+@media (max-width: 770px) {
+    div.justify-content-evenly {
+        flex-direction: column;
+    }
+
+    .p-4 {
+        margin: auto;
+    }
 }
