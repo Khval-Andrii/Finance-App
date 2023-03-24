@@ -121,6 +121,19 @@ button.btn {
     min-width: 150px;
 }
 
+.canvas {
+    max-width: 500px;
+    height: 400px;
+}
+
+@media (max-width: 990px) {
+    .canvas {
+        margin: auto;
+        width: 400px;
+        height: 400px;
+    }
+}
+
 @media (max-width: 770px) {
     div.justify-content-evenly {
         flex-direction: column;
