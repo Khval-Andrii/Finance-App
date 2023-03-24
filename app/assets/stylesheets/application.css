@@ -126,7 +126,13 @@ button.btn {
         flex-direction: column;
     }
 
-    .p-4 {
+    .table-responsive {
         margin: auto;
+    }
+
+    .canvas {
+        margin: auto;
+        width: 300px;
+        height: 300px;
     }
 }
