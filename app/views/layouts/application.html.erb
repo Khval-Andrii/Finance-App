@@ -18,8 +18,14 @@
   </head>
 
   <body class="d-flex flex-column justify-content-between">
-    <%= render 'shared/header' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <header>
+      <%= render 'shared/header' %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>
