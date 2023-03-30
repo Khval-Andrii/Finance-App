@@ -24,7 +24,8 @@ class OperationsController < ApplicationController
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
-
+    @categories_array = Category.pluck(:name, :id)
+    
     respond_to do |format|
       if @operation.save
         format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
