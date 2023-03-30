@@ -64,8 +64,14 @@
             <td ><%= category_item %></td>
             <td><%= amount_item.round(2) %></td>
           </tr>
+          <% end %>
         </tbody>
-        <% end %>
+        <tfoot class="table-group-divider">
+          <tr>
+            <td><strong>Загалом: </strong></td>
+            <td><strong><%= @amounts.sum.round(2) %></strong></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>
