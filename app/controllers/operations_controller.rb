@@ -39,6 +39,8 @@ class OperationsController < ApplicationController
 
   # PATCH/PUT /operations/1 or /operations/1.json
   def update
+    @categories_array = Category.pluck(:name, :id)
+    
     respond_to do |format|
       if @operation.update(operation_params)
         format.html { redirect_to operation_url(@operation), notice: "Operation was successfully updated." }
