@@ -24,7 +24,7 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "return true if names is unique" do
-    new_category = Category.create(name: "MyName_3", description: "MyDescription_3")
+    new_category = Category.create(name: "MyName_5", description: "MyDescription_5")
     assert(new_category.valid?)
   end
 
