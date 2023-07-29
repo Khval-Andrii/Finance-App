@@ -9,26 +9,26 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
+
  */
+ @import 'bootstrap';
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    
+
     height: 100vh;
     background-image: url("./money1.jpg");
     background-size: cover;
     background-position: 20%;
 }
-/* 
+/*
 main {
     height: 90%;
 } */
 
 ul {
-    width: 30%; 
+    width: 30%;
 }
 
 .nav-link {

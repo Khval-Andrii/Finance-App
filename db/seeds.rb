@@ -1,24 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+categories = {
+  "Daily Expenses" => "Keep track of your day-to-day expenses like groceries, transportation, and small purchases. This category helps you budget and control your spending.",
+  "Bills & Utilities" => "Manage payments for electricity, water, internet, and other recurring bills. Set reminders to avoid missing due dates and late fees.",
+  "Entertainment & Leisure" => "Track expenses related to entertainment, dining out, movies, hobbies, and recreational activities. This category allows you to monitor discretionary spending.",
+  "Travel & Vacation" => "Plan and budget for trips, flights, accommodations, and sightseeing. This category helps you save and allocate funds for your travel goals.",
+  "Savings & Investments" => "Monitor your savings progress and investments, including stocks, mutual funds, and retirement accounts. Set financial goals and track your investment performance.",
+  "Debts & Loans" => "Keep tabs on outstanding debts, loans, and credit card balances. Set up payment schedules and be mindful of interest rates.",
+  "Education & Learning" => "Record expenses related to courses, workshops, and educational materials. This category promotes lifelong learning and personal development.",
+  "Gifts & Donations" => "Track gifts for family and friends, as well as donations to charities and causes. This category helps you plan for special occasions and support meaningful causes.",
+  "Health & Wellness" => "Monitor expenses for healthcare, insurance premiums, gym memberships, and wellness products. Prioritize your well-being while managing costs.",
+  "Miscellaneous" => "For any transactions that don't fit into the other categories, use this catch-all category. Regularly review this section to identify potential new categories."
+}
 
-require "faker"
-
-categories = Category.pluck(:id)
-
-100.times do 
-  Operation.create(
-    amount: Faker::Commerce.price,
-    odate: Faker::Date.between(from: "2022-08-01", to: "2023-03-01"),
-    description: Faker::Lorem.sentence,
-    category_id: Faker::Number.sample(categories),
-    types: Faker::Number.within(range: 1..2)
-  )
-end
-
-
-
+categories.each { |k, v| Category.create(name: k, description: v) }
