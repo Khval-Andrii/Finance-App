@@ -4,13 +4,13 @@
 
 <div class="container-fluid">
   <div class="text-center mt-3">
-    <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
+    <h1>Report for the period: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
   </div>
   <div class="container bg-body-secondary d-flex justify-content-evenly">
     <div class="p-4">
       <%= render 'chart' %>
       
-      <h4 class="text-center">Графік в розрізі категорій</h4>
+      <h4 class="text-center">Chart in section of categories</h4>
       <div class="chart_by_categories w-100">
         <canvas class="canvas" id="myChart"></canvas>
         <script>
@@ -18,7 +18,7 @@
         const data = {
         labels: <%= raw @category_names %>,
         datasets: [{
-            label: "Загальна сума по категорії",
+            label: "Total amount by category",
             data: <%= @amounts %>,
             backgroundColor: [
             'rgb(255, 99, 132)',
@@ -50,12 +50,12 @@
     </div>
 
     <div class="p-4 table-responsive">
-      <h4 class="text-center">Таблиця в розрізі категорій</h4>
+      <h4 class="text-center">Table in section of categories</h4>
       <table class="table table-success table-hover table-bordered border-1">
         <thead>
           <tr>
-            <th>Категорія</th>
-            <th>Сума</th>
+            <th>Category</th>
+            <th>Amount</th>
           </tr> 
         </thead>
         <tbody class="table-group-divider">
@@ -68,7 +68,7 @@
         </tbody>
         <tfoot class="table-group-divider">
           <tr>
-            <td><strong>Загалом: </strong></td>
+            <td><strong>Result: </strong></td>
             <td><strong><%= @amounts.sum.round(2) %></strong></td>
           </tr>
         </tfoot>

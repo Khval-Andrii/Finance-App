@@ -16,14 +16,13 @@
 
   <p>
     <strong>Category:</strong>
-    <!--<% h = Category.pluck(:id, :name).each_with_object({}) { |v,h| h[v[0]] = v[1] } %>-->
     <% h = Category.pluck(:id, :name).to_h { |v| [v[0], v[1]] } %>
     <%= h[operation.category_id] %>
   </p>
 
   <p>
     <strong>Types of operations:</strong>
-    <% types_of_operation = {1 => "Витрати", 2 => "Доходи"} %>
+    <% types_of_operation = {1 => "Expenses", 2 => "Income"} %>
     <%= types_of_operation[operation.types] %>
   </p>
 

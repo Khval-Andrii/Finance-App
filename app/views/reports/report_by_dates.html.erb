@@ -4,13 +4,13 @@
 
 <div class="container-fluid">
   <div class="text-center mt-3">
-    <h1>Звіт за період: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
+    <h1>Report for the period: <%= params[:start_date] %> - <%= params[:end_date] %> </h1>
   </div>
   <div class="container bg-body-secondary d-flex justify-content-evenly">
     <div class="p-4">
       <%= render 'chart' %>
       
-      <h4 class="text-center">Витрати по категорії в розрізі дат</h4>
+      <h4 class="text-center">Expenses by category by date</h4>
       <div class="Chart_by_categories w-100">
         <canvas class="canvas" id="myChart"></canvas>
         <script>
@@ -18,7 +18,7 @@
         const data = {
         labels: <%= raw @dates %>,
         datasets: [{
-          label: 'Витрати по дням',
+          label: 'Expenses by day',
           data: <%= @amounts %>,
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
@@ -39,7 +39,7 @@
     </div>
 
     <div class="p-4 table-responsive">
-      <h4 class="text-center">Таблиця витрат в розрізі дат</h4>
+      <h4 class="text-center">The table of costs by date</h4>
       <table class="table table-success table-hover table-bordered border-1">
         <thead>
           <tr>
@@ -57,7 +57,7 @@
         </tbody>
         <tfoot class="table-group-divider">
           <tr>
-            <td><strong>Загалом: </strong></td>
+            <td><strong>Result: </strong></td>
             <td><strong><%= @amounts.sum.round(2) %></strong></td>
           </tr>
         </tfoot>
