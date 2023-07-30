@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ action_report ]
+
   def index
   end
 
