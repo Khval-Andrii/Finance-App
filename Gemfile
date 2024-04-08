@@ -46,8 +46,10 @@ gem 'bootsnap', require: false
 gem 'kaminari'
 
 gem 'devise'
+gem 'devise-i18n'
 
 gem 'bootstrap'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -83,3 +85,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

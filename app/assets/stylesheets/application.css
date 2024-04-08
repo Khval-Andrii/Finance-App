@@ -95,7 +95,11 @@ ul.pagination {
 }
 
 form {
-    width: 50%;
+    width: 100%;
+}
+
+.new_user {
+    width: 100%
 }
 
 input {

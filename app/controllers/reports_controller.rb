@@ -16,12 +16,12 @@ class ReportsController < ApplicationController
   def report_by_dates
     @dates_and_amounts = Operation
     .model_report_by_dates(params[:start_date], params[:end_date], params[:category_id])
-    
+
     @dates = @dates_and_amounts.keys.map { |date| date.to_date.to_s }
-        
+
     @amounts = @dates_and_amounts.values.map { |amount| amount }
   end
-  
+
   def action_report
     if params[:btn_graph]
       redirect_to({
