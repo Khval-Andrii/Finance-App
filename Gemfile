@@ -7,7 +7,7 @@ ruby '3.1.3'
 gem 'rails', '~> 7.0.4'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+gem 'sprockets-rails', '>= 2.3.2'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -48,11 +48,12 @@ gem 'kaminari'
 gem 'devise'
 gem 'devise-i18n'
 
-gem 'bootstrap'
+gem 'bootstrap-sass'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem 'dartsass-sprockets'
+gem 'jquery-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"

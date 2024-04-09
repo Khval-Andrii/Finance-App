@@ -22,10 +22,10 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: database-1
-  host: database-1.cw4k8euprb0n.us-east-1.rds.amazonaws.com
-  port: 5432
-  pool: 5
-  username: postgres
-  password: <%= ENV['RAILS_DB_PASSWORD_PRODUCTION'] %>
+  Username: postgres
+  password: CtEkjArMbLd0boq
+  hostname: postgres-cash-commander.internal
+  flycast: fdaa:2:54cf:0:1::b
+  proxy port: 5432
+  postgres port: 5433
+  connection string: postgres://postgres:CtEkjArMbLd0boq@postgres-cash-commander.flycast:5432
