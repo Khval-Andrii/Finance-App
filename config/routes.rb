@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   get 'reports/action_report', to: "reports#action_report"
   get 'reports/index', to: "reports#index"
   get 'reports/report_by_category', to: "reports#report_by_category"
