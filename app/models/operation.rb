@@ -1,7 +1,9 @@
+# class Operation
 class Operation < ApplicationRecord
   belongs_to :category
+  belongs_to :user
 
-  validates :amount, numericality: true, presence: true
+  validates :amount, numericality: true
   validates :odate, presence: true
   validates :description, presence: true
   validates :types, numericality: { only_integer: true, in: 1..2 }
@@ -21,4 +23,4 @@ class Operation < ApplicationRecord
       .group(:odate)
       .sum(:amount)
   end
-end 
+end
