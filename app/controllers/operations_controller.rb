@@ -1,6 +1,7 @@
 # class of OperationController
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[show edit update destroy]
+  before_action :categories_array, only: %i[new edit create update]
   before_action :authenticate_user!, only: %i[show new edit create update destroy]
 
   def index
@@ -11,16 +12,12 @@ class OperationsController < ApplicationController
 
   def new
     @operation = Operation.new
-    @categories_array = Category.pluck(:name, :id)
   end
 
-  def edit
-    @categories_array = Category.pluck(:name, :id)
-  end
+  def edit; end
 
   def create
     @operation = Operation.new(operation_params)
-    @categories_array = Category.pluck(:name, :id)
 
     if @operation.save
       redirect_to operation_url(@operation), notice: 'Operation was successfully created.'
@@ -30,8 +27,6 @@ class OperationsController < ApplicationController
   end
 
   def update
-    @categories_array = Category.pluck(:name, :id)
-
     if @operation.update(operation_params)
       redirect_to operation_url(@operation), notice: 'Operation was successfully updated.'
     else
@@ -45,6 +40,10 @@ class OperationsController < ApplicationController
   end
 
   private
+
+  def categories_array
+    @categories_array = Category.pluck(:name, :id)
+  end
 
   def set_operation
     @operation = Operation.find(params[:id])
