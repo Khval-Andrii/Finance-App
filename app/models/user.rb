@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :operations, dependent: :destroy
 
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
