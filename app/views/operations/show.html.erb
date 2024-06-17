@@ -2,17 +2,19 @@
   <p style="color: green"><%= notice %></p>
   <h1 class="text-center m-3 p-4">About operation</h1>
   <div class="d-flex justify-content-center">
-    <%= render @operation %>
+    <%= render partial: 'operation', locals: {
+      operation: @operation, categories_array: @categories_array
+    } %>
   </div>
   <div class="text-center pt-3">
     <button class="btn btn-info mb-2 me-2"> 
-      <%= link_to "Back to operations", operations_path %>
+      <%= link_to "Back to operations", operations_path(page: params[:page]) %>
     </button>
     <button class="btn btn-success mb-2 me-2">
       <%= link_to "Edit this operation", edit_operation_path(@operation) %>
     </button>
     <button class="btn btn-danger mb-2 me-2">
-      <%= link_to "Destroy this operation", operation_path(@operation), data: {turbo_method: :delete} %>
+      <%= link_to "Destroy this operation", operation_path(@operation), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
     </button>
   </div>
 </div>

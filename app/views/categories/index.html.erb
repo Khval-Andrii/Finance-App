@@ -3,7 +3,7 @@
   <h1 class="text-center">Categories</h1>
   <div class="new_category_link mb-2 pb-3 text-center">
     <button class="btn btn-success">
-      <%= link_to "Add new category", new_category_path %>
+      <%= link_to "Add new category", new_category_path(page: params[:page]) %>
     </button>
   </div>
 
@@ -12,7 +12,7 @@
       <%= render category %>
       <p>
         <button class="btn btn-success">
-          <%= link_to "Show this category", category %>
+          <%= link_to "Show this category", category_path(category, page: params[:page]) %>
         </button>
       </p>
       <div></div>
