@@ -5,12 +5,11 @@ class CategoriesController < ApplicationController
   before_action :categories_types_set, only: %i[new edit create update]
 
   def index
-    if user_signed_in?
-      session[:category_index_page] = params[:page] || 1
-      @categories = Category.categories_of_user(current_user.id).page(session[:category_index_page])
-    else
-      @categories = Category.categories_of_user(0).page(params[:page])
-    end
+    @categories = if user_signed_in?
+                    fetch_categories_for_user(current_user.id, params[:page])
+                  else
+                    fetch_categories(params[:page])
+                  end
   end
 
   def show; end
@@ -46,10 +45,28 @@ class CategoriesController < ApplicationController
 
   private
 
+  def fetch_categories_for_user(user_id, page)
+    store_current_page(page)
+    Category.categories_of_user(user_id).page(current_page)
+  end
+
+  def fetch_categories(page)
+    store_current_page(page)
+    Category.categories_of_user.page(current_page)
+  end
+
+  def store_current_page(page)
+    session[:current_page] = page if page.present?
+  end
+
+  def current_page
+    session[:current_page] || 1
+  end
+
   def set_category
     @category = current_user.categories.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to categories_path, notice: 'Record not found'
+    redirect_to categories_path, alert: 'Record not found'
   end
 
   def category_params
