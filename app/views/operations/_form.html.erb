@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :odate, style: "display: block" %>
-    <%= form.date_field :odate %>
+    <%= form.datetime_field :odate %>
   </div>
 
   <div>
@@ -34,8 +34,7 @@
 
     <div class="w-50">
       <%= form.label :types_of_operation %>
-      <% types_of_operation = [["Витрати", 1], ["Доходи", 2]] %>
-      <%= form.select(:types, types_of_operation) %>
+      <%= form.select(:types, @types) %>
     </div>
   </div>
 

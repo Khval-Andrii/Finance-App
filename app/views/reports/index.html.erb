@@ -2,7 +2,7 @@
   <h1 class="text-center m-3 p-4">Reports generator</h1>
 
   <div class="d-flex justify-content-center w-100">
-    <%= form_with url: "action_report", method: :get do |form| %>
+    <%= form_with url: "", method: :get do |form| %>
       <div class="mt-3">
         <strong><%= form.label :start_date, "Date YYYY-MM-DD" %></strong>
         <%= form.date_field :start_date %>
@@ -22,8 +22,8 @@
       </div>
       <div class="text-center mt-3 p-4">
         <button type="reset" class="btn btn-danger mb-2 me-2" id="btn_reset" name="btn_reset">Reset</button>
-        <button type="submit" class="btn btn-success mb-2 me-2" id="btn_dates" name="btn_dates">By dates</button>
-        <button type="submit" class="btn btn-primary mb-2 me-2" id="btn_graph" name="btn_graph">Chart</button>
+        <button type="submit" class="btn btn-success mb-2 me-2" id="btn_dates" formaction="report_by_dates">By dates</button>
+        <button type="submit" class="btn btn-primary mb-2 me-2" id="btn_graph" formaction="report_by_category">Chart</button>
       </div>
     <% end %>
   </div>

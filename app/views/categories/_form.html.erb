@@ -21,6 +21,11 @@
       <%= form.text_field :description %>
     </div>
 
+    <div class="mb-4">
+      <%= form.label :category_type, style: "display: inline-block" %>
+      <%= form.select(:types, @types) %>
+    </div>
+
     <div>
       <%= form.submit %>
     </div>

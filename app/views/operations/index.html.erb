@@ -3,15 +3,15 @@
   <h1 class="text-center">Operations</h1>
   <div class="new_operation_link mb-2 pb-3 text-center">
     <button class="btn btn-success">
-      <%= link_to "Add new operation", new_operation_path %>
+      <%= link_to "Add new operation", new_operation_path(page: params[:page]) %>
     </button>
   </div>
   <div class="mb-3" id="operations">
     <% @operations.each do |operation| %>
-      <%= render operation %>
+      <%= render operation, categories_array: @categories_array %>
       <p>
         <button class="btn btn-success">
-          <%= link_to "Show this operation", operation %>
+          <%= link_to "Show this operation", operation_path(operation, page: params[:page]) %>
         </button>
       </p>
       <div></div>
