@@ -12,7 +12,7 @@ class Category < ApplicationRecord
 
   paginates_per 4
 
-  def self.categories_of_user(user)
+  def self.categories_of_user(user = 0)
     Category.where(user_id: user).order(:name)
   end
 
