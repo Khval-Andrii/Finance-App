@@ -16,14 +16,13 @@
 
   <p>
     <strong>Category:</strong>
-    <% h = Category.pluck(:id, :name).to_h { |v| [v[0], v[1]] } %>
+    <% h = categories_array.to_h { |v| [v[1], v[0]] } %>
     <%= h[operation.category_id] %>
   </p>
 
   <p>
     <strong>Types of operations:</strong>
-    <% types_of_operation = {1 => "Expenses", 2 => "Income"} %>
-    <%= types_of_operation[operation.types] %>
+    <%= operation.types.humanize %>
   </p>
 
 </div>
