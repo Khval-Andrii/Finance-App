@@ -1,8 +1,8 @@
 # class of OperationController
 class OperationsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_operation, only: %i[show edit update destroy]
   before_action :categories_array, :operations_types_set, only: %i[index new show edit create update]
-  before_action :authenticate_user!, except: %i[index]
 
   def index
     @operations = if user_signed_in?
@@ -68,7 +68,7 @@ class OperationsController < ApplicationController
   end
 
   def categories_array
-    @categories_array = Category.categories_of_user(current_user.id).pluck(:name, :id)
+    @categories_array = Category.categories_of_user(current_user.id).pluck(:name, :id) if user_signed_in?
   end
 
   def set_operation
